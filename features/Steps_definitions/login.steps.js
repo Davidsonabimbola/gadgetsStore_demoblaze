@@ -7,7 +7,7 @@ let page
 let Ecom_LoginPage
 
 
-Given('I am on the homepage of Demoblaze as an existing user,',{timeout:5000},async()=>{
+Given('I am on the homepage of Demoblaze as an existing user,',{timeout:10000},async()=>{
     const browser = await chromium.launch({
         headless: false,
     });
@@ -17,25 +17,25 @@ Given('I am on the homepage of Demoblaze as an existing user,',{timeout:5000},as
     await expect(page.locator('[id="contcont"]')).toBeVisible()
 })
 
-When('I click on the top login button as an existing user,',{timeout:1000},async()=>{
+When('I click on the top login button as an existing user,',{timeout:10000},async()=>{
     Ecom_LoginPage = new EcomloginPage(page)
     Ecom_LoginPage.start_login()
     
 })
 
-When('I enter the username {string} correctly as an existing user,',{timeout:1000},async(firstName)=>{
+When('I enter the username {string} correctly as an existing user,',{timeout:10000},async(firstName)=>{
     Ecom_LoginPage = new EcomloginPage(page)
     Ecom_LoginPage.enter_firstName(firstName)
     
 })
 
-When('I enter the password {string} correctly as an existing user,',{timeout:1000},async(password)=>{
+When('I enter the password {string} correctly as an existing user,',{timeout:10000},async(password)=>{
     Ecom_LoginPage = new EcomloginPage(page)
     Ecom_LoginPage.enter_password(password)
     
 })
 
-When('I click on the bottom login button as an existing user,',{timeout:1000},async()=>{
+When('I click on the bottom login button as an existing user,',{timeout:10000},async()=>{
     Ecom_LoginPage = new EcomloginPage(page)
     Ecom_LoginPage.end_login()
     
