@@ -71,14 +71,30 @@ test.only('product ordering', async ({ page }) => {
 
 await page.locator('[id="cartur"]').click()
 
+// select place order button
 
-   
+await page.locator('[class="btn btn-success"]').filter({hasText:'Place Order'}).click()
+
+
+// assertion 
+await expect(page.locator('[id="orderModal"]')).toBeVisible()
+
+// fill the form
+await page.locator('[id="name"]').fill('Tristan')
+await page.locator('[id="country"]').fill('Nigeria')
+await page.locator('[id="city"]').fill('Lagos')
+await page.locator('[id="card"]').fill('536798762345')
+await page.locator('[id="month"]').fill('06')
+await page.locator('[id="year"]').fill('24')
+await page.getByRole('button',{name: 'Purchase'}).click()
+await expect(page.locator('[class="lead text-muted "]')).toBeVisible()
+console.log(await page.locator('h2').nth(2).textContent())
+ expect(await page.locator('h2').nth(2).textContent()).toContain('Thank you for your purchase!')
+
+ 
 
 
 
-  
-  
-  
   
 
 });
